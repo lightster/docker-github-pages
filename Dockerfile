@@ -1,8 +1,10 @@
-FROM ruby:2.4.2-alpine
+ARG  RUBY_VERSION
+FROM ruby:${RUBY_VERSION}-alpine
+ARG  PAGES_VERSION
 
 RUN apk add --no-cache --virtual .build-deps build-base \
   && apk add --no-cache git libcap \
-  && gem install github-pages:183 minitest \
+  && gem install github-pages:${PAGES_VERSION} minitest \
   && apk del --no-cache .build-deps
 
 RUN mkdir -p /jekyll/source /jekyll/destination \
