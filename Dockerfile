@@ -18,8 +18,12 @@ EXPOSE 80
 
 WORKDIR /jekyll/source
 
-CMD jekyll serve \
-  --host 0.0.0.0 \
-  --port ${JEKYLL_PORT:-80} \
-  --source /jekyll/source \
-  --destination /jekyll/destination
+ENTRYPOINT ["jekyll"]
+
+CMD [ \
+  "serve", \
+  "--host", "0.0.0.0", \
+  "--port", "${JEKYLL_PORT:-80}", \
+  "--source", "/jekyll/source", \
+  "--destination", "/jekyll/destination" \
+]
