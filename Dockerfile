@@ -16,15 +16,8 @@ RUN mkdir -p /jekyll/source /jekyll/destination \
 USER jekyll
 EXPOSE 80
 
+COPY docker-entrypoint.sh /usr/local/bin
+
 WORKDIR /jekyll/source
 
-ENTRYPOINT ["jekyll"]
-
-CMD [ \
-  "serve", \
-  "--host", "0.0.0.0", \
-  "--port", "80", \
-  "--source", "/jekyll/source", \
-  "--destination", "/jekyll/destination", \
-  "--force_polling" \
-]
+ENTRYPOINT ["docker-entrypoint.sh"]
