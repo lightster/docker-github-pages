@@ -26,5 +26,5 @@ CMD [ \
   "--port", "${JEKYLL_PORT:-80}", \
   "--source", "/jekyll/source", \
   "--destination", "/jekyll/destination", \
-  "--force_polling"
+  "--force_polling" \
 ]
