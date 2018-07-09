@@ -3,7 +3,7 @@ FROM ruby:${RUBY_VERSION}-alpine
 ARG  PAGES_VERSION
 
 RUN apk add --no-cache --virtual .build-deps build-base \
-  && apk add --no-cache git libcap \
+  && apk add --no-cache git libcap libstdc++ \
   && gem install github-pages:${PAGES_VERSION} minitest \
   && apk del --no-cache .build-deps
 
