@@ -12,6 +12,8 @@ docker build . \
     --build-arg PAGES_VERSION="${PAGES_VERSION}" \
     --tag "${DOCKER_REPO}:latest" \
     --tag "${DOCKER_REPO}:pages-${PAGES_VERSION}" \
-    --tag "${DOCKER_REPO}:pages-${PAGES_VERSION}-ruby-${RUBY_VERSION}" \
+    --tag "${DOCKER_REPO}:pages-${PAGES_VERSION}-ruby-${RUBY_VERSION}"
 
-docker push "${DOCKER_REPO}"
+docker push "${DOCKER_REPO}:latest"
+docker push "${DOCKER_REPO}:pages-${PAGES_VERSION}"
+docker push "${DOCKER_REPO}:pages-${PAGES_VERSION}-ruby-${RUBY_VERSION}"
