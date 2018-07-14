@@ -4,7 +4,7 @@ ARG  PAGES_VERSION
 
 RUN apk add --no-cache --virtual .build-deps build-base \
   && apk add --no-cache git libcap libstdc++ \
-  && gem install github-pages:${PAGES_VERSION} minitest \
+  && gem install github-pages:${PAGES_VERSION} minitest jekyll-include-cache \
   && apk del --no-cache .build-deps
 
 RUN mkdir -p /jekyll/source /jekyll/destination \
